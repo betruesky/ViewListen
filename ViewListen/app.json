@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/read/read",
+    "pages/listen/listen",
+    "pages/word/word",
+    "pages/groupRank/groupRank",
+    "pages/introduce/introduce",
+    "pages/prize/prize"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#318efd",
+    "navigationBarTitleText": "新琦迹英语天天练",
+    "enablePullDownRefresh": false,
+    "backgroundColor": "#ffffff"
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ]
+}

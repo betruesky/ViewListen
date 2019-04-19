@@ -1,0 +1,46 @@
+/**app.wxss**/
+
+.container {
+  height: 100vh;
+  padding: 40rpx;
+  width: 100vw;
+  font-size: 24rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.txtDisabled{
+  color: #666;
+  text-align: center
+}
+
+.bad {
+  color: #ff1a03;
+}
+
+.good {
+  color: #02b902;
+}
+
+.good .word-item-input.inputed {
+  border-color: #02b902;
+}
+
+.bad .word-item-input.inputed {
+  border-color: #ff1a03;
+}
+
+.item-title {
+  text-align: center;
+  font-size: 36rpx;
+  margin-bottom: 48rpx;
+}
+
+.center {
+  text-align: center;
+}

@@ -1,0 +1,114 @@
+.read-title {
+  padding: 32rpx 0 48rpx;
+  text-align: center;
+  font-size: 40rpx;
+  
+}
+.read_sound,.read_result{
+  position: relative;
+  top:0;
+  left:0;
+  line-height: 60rpx;
+  height:60rpx;
+  vertical-align: middle;
+  color:#A8A8A9;
+  margin-top:30rpx;
+  margin-bottom:30rpx;
+  font-size:30rpx;
+
+}
+.read_result{
+  padding-left:80rpx;
+}
+.read_sound_word{
+  margin-left:80rpx;
+}
+.read-sound-playbtn {
+  display: inline-block;
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top:0;
+  left:0;
+  cursor: pointer;
+  /* margin-right: 20rpx; */
+}
+
+.read-original {
+  display: inline;
+  font-size: 32rpx;
+}
+
+.read-original-cn {
+  margin: 32rpx 0 32rpx 0;
+  font-size: 30rpx;
+  color:#A8A8A9;
+  padding-bottom:32rpx;
+  border-bottom:1px solid #F1F1F1;
+}
+
+.recorder-self {
+  margin-top: 48rpx;
+  font-size: 32rpx;
+}
+
+.record-score {
+  display: inline-block;
+  margin-left: 24rpx;
+  font-size: 32rpx;
+  color: rgb(230, 18, 64);
+  margin-bottom: 32rpx
+}
+
+.self-record {
+  display: inline-block;
+  /* margin-top: 20rpx;
+  margin-bottom: -6rpx; */
+}
+
+.record-funcBtn {
+  position: fixed;
+  bottom: 60rpx;
+  left: 40rpx;
+  right: 40rpx;
+}
+.read_icon_home{
+  display:block;
+  width:60rpx;
+  height:60rpx;
+  margin:0 auto;
+  margin-bottom:10rpx;
+}
+.read_record_col{
+  font-size:30rpx;
+}
+.record-back {
+  color: #888;
+}
+
+.record-submit {
+  color: #20c5cb;
+}
+
+.disabled {
+  color: #888;
+}
+
+.reader {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+  background-color: #20c5cb;
+}
+
+.active {
+  background-color: rgb(230, 18, 64);
+}
+
+.read-icon {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0 auto;
+  display: block;
+}

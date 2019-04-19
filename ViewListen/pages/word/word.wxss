@@ -1,0 +1,156 @@
+.audio_progress_bg{
+  height:40rpx;
+  line-height:40rpx;
+  padding:6rpx;
+  border:1px solid #49A2F7;
+  box-sizing:border-box;
+  border-radius: 20rpx;
+}
+.word_card{
+  box-shadow: 0 2px 7px #eee;
+  margin-top: 32rpx;
+  padding-top:32rpx;
+  padding-bottom:60rpx;
+  position: relative;
+}
+.word_tips{
+  position: absolute;
+  bottom:0;
+  left:10%;
+  width:80%;
+
+  text-align:center;
+  font-size:20rpx;
+  color:#aaa;
+}
+.center{
+  color:#AFAFB0;
+  margin-top:20rpx;
+  margin-bottom:20rpx;
+  position: relative;
+}
+.center_time{
+  position: absolute;
+  top: 0;
+  right: 0; 
+  font-weight: 600;
+  color:#000;
+}
+.center_num{
+  display:inline-block;color:#000;
+}
+.word-title {
+  
+  font-size: 32rpx;
+  text-align: center;
+}
+
+.word-cn {
+  display: inline-block;
+  font-size: 42rpx;
+}
+
+.word-sound-playbtn {
+  display: block;
+  width: 80rpx;
+  height: 80rpx;
+  margin: 58rpx auto;
+}
+
+.word_rule{
+  width:80%;
+  margin:0 auto;
+  height:1px;
+  border-bottom:1px solid #EFEFEF;
+  margin-bottom:58rpx;
+  position: relative;
+}
+.word_rule_word{
+  font-size: 24rpx;
+  background:#fff;
+  position: absolute;
+  bottom:-12rpx;
+  padding:0 22rpx;
+  left:calc( 50% - 118rpx);
+  color:#A7A7A8;
+}
+
+.word-item-input-wrapper {
+  justify-content: center;
+}
+
+.word-item-input {
+  position: relative;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 12rpx;
+  text-align: center;
+  font-size: 32rpx;
+  border: 4rpx solid #ddd;
+}
+
+.word-item-input.inputed {
+  border-color: #1f8ded;
+}
+
+.hasSelection::before {
+  content: '';
+  position: absolute;
+  left: 44rpx;
+  height: 40rpx;
+  width: 4rpx;
+  top: 10rpx;
+  bottom: 101rpx;
+  background-color: #999;
+  animation: shine .56s ease infinite alternate
+}
+@keyframes shine{
+  from{
+opacity: 0
+  }
+  to{
+opacity: 1
+  }
+}
+.word-item-input-wrapper .word-item-input:not(:last-child) {
+  margin-right: 10rpx;
+}
+
+.word-input {
+  width: 0;  height: 0; 
+}
+
+.progress-show {
+  margin-top: 120rpx;
+  font-size: 26rpx;
+  text-align: center;
+  color: #888;
+}
+
+.word-btn {
+  position: fixed;
+  bottom: 48rpx;
+  left: 120rpx;
+  right: 120rpx;
+}
+.audioPlay_bd{
+  position: relative;
+}
+.word_skip_btn{
+  position: absolute;
+  bottom:-50rpx;
+  right: 20rpx;
+  font-size: 20rpx;
+  width: 150rpx;
+  color:#AAAAAB;
+  background:#fff;
+}
+.word_next_btn{
+  position: fixed;
+  bottom: 170rpx;
+  right: 50rpx;
+  width: 250rpx;
+  color:#1AAD19;
+  background:#fff;
+  border:none;
+}

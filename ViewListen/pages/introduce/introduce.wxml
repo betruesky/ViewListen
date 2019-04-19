@@ -1,0 +1,17 @@
+<!--pages/introduce/introduce.wxml-->
+<view class="introduce_tab_item">
+  <view class="introduce_tab_bg flex">
+    <view class="{{showTab===1?'introduce_tab_act':''}}" bindtap="ChoseTabO">介绍</view>
+    <view class="{{showTab===2?'introduce_tab_act':''}}" bindtap="ChoseTabT">Q&A</view>
+  </view>
+</view>
+
+<view wx:if="{{showTab===1}}">
+  <image style="width:100vw;height:702.1vw;" src="{{src}}"></image>
+</view>
+<view class="introduce_card_bg" wx:else>
+  <view class="introduce_card_item" wx:for="{{data}}" wx:for-index="indx" wx:for-item="dat">
+    <view class="introduce_card_title">{{indx+1}}、{{dat.ques}}</view>
+    <rich-text class="introduce_card_body" nodes="{{dat.ans}}"></rich-text>
+  </view>
+</view>

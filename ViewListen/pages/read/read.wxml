@@ -1,0 +1,31 @@
+<view class='container'>
+  <!-- <view class='read-title'>每日一句</view> -->
+  <view class="read_sound">
+    <image bindtap='audioPlay' data-audiourl='original' class="read-sound-playbtn" src="../images/new/voice.png"></image>
+    <view class="read_sound_word">点击听原文</view>
+  </view>
+  <view class='read-original'>{{originalEN}}</view>
+  <view class='read-original-cn'>译文:{{originalCN}}</view>
+   <!--  -->
+  <view class='recorder-self' hidden='{{!recordUrl &&  !score}}'>
+    <view class="read_result" bindtap='audioPlay' data-audiourl='recordUrl'>
+      <image class="read-sound-playbtn self-record" src="../images/new/voice.png"></image>  您的识别结果:
+     <view class='record-score'>{{score}}</view>  分</view>
+    <view>
+       <rich-text nodes="{{voiceHtml}}"></rich-text>
+    </view>
+  </view>
+</view>
+<view class='flex record-funcBtn'>
+  <view class='read_record_col record-back' bindtap='goBack'>
+    <image class="read_icon_home" src="../images/new/home.png"></image>
+    去首页
+  </view>
+  <view class='flex reader {{recording?"active":""}}' bind:touchstart="readerStart" bind:touchmove="readerEnd" bind:touchcancel="readerEnd" bind:touchend="readerEnd">
+    <image class="read-icon" src="../images/recorder.png"></image>
+  </view>
+  <view class='read_record_col record-submit {{!recordUrl?"disabled":""}}' bindtap='submit'>
+    <image class="read_icon_home" src="../images/new/next.png"></image>
+    下一关
+  </view>
+</view>

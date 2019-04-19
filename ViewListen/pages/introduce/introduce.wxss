@@ -1,0 +1,37 @@
+/* pages/introduce/introduce.wxss */
+.introduce_tab_item{
+  background:#318EFD;
+}
+.introduce_tab_bg{
+  height:80rpx;
+  line-height:80rpx;
+  width:60%;
+  margin:0 auto;
+  color:#fff;
+}
+.introduce_tab_bg>view{
+  width:48%;
+  text-align: center;
+}
+.introduce_tab_act{
+  background:#fff;
+  color:#318EFD;
+}
+.introduce_card_bg{
+  padding:30rpx;
+}
+.introduce_card_item{
+  background:#eee;
+  padding:20rpx;
+  border-radius:20rpx;
+  min-height:80rpx;
+  margin-bottom:30rpx; 
+}
+.introduce_card_title{
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom:15rpx;
+}
+.introduce_card_body{
+  font-size: .8rem;
+}

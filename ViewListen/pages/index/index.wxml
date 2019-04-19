@@ -1,0 +1,133 @@
+<!--index.wxml-->
+
+<view class="flex page-loading" wx:if="{{!hasUserInfo || !showContainer}}">
+  <image class="index-logo" src="../images/chevron.png"></image>
+  <view class="userInfoWrapper" wx:if='{{!hasUserInfo}}'>
+    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="handleGetUserInfo">
+      登陆新琦迹小程序
+    </button>
+  </view>
+  <view wx:else class="txtDisabled">
+    loading...
+  </view>
+</view>
+<view style="background:#fff;z-index:0;" wx:else>
+
+<view class="container">
+  <view class='week-wrapper {{weekdataShowAll?"week-full":""}}' bindtap='toggleWeekdataShowAll'>
+    <view class='week-container'>
+      <view wx:if="{{weekdataShowAll}}" class='week-title'>最近四周任务完成情况</view>
+      <view class="flex week-outer-list" wx:for="{{weekdata}}" wx:for-index="outerIdx" wx:for-item="outerItem" wx:key="{{outerIdx}}" wx:if="{{weekdataShowAll || outerIdx===3}}">
+        <view wx:for="{{outerItem}}" wx:for-item="innerItem" wx:key="{{innerItem.d+innerItem.m}}" class="week-inner-list  {{today===innerItem.date?'today':''}} {{innerItem.status?'week-inner-done':''}}" catchtap='ChangeWeekDay'>
+          <view class='week-day'>
+            {{innerItem.d}}
+          </view>
+          <view class='week-month'>{{innerItem.m}}</view>
+        </view>
+        <view></view>
+      </view>
+    </view>
+  </view>
+  <view class="index_main">
+    <view class="index-title">
+      <view style="text-align:center;margin-bottom:25rpx;">
+        <image class="avatarUrl-icon" src="{{userInfo.avatarUrl}}" bindtap='Test'></image>
+      </view>
+      <view class="index_detail" class="flex">
+        <view>您好：{{userInfo.nickName}}</view>
+        <view>您当前难度为： <view class="diffSelection" bindtap='handleDiffSelection'>{{myHtml}}</view></view>
+      </view>
+    </view>
+    <view>
+      <view class="task-list" wx:for="{{dayTasks}}" wx:for-index="idx" wx:for-item="item" wx:key="{{item.title}}">
+        <view class='flex task-item' bindtap="viewtap" data-indx="{{idx}}" data-disabled="{{!!item.score}}" id="{{idx}}">
+          <view>
+            {{idx+1}}. {{item.title}}    
+          </view>
+          <!-- <view>1.每日一句跟读</view> -->
+          <icon type="{{item.done?'success' :'warn'}}" size="24" />
+        </view>
+        <view class='flex task-grade'>
+          <view>得分：<view style="display:inline-block;" wx:if="{{item.score}}">{{item.score}}</view></view>
+          <view>满分：{{item.full}}</view>
+        </view>
+      </view>
+    </view>
+    
+  </view>
+  <view class="flex index-bottom-btn-group">
+    <view class='index-bottom-btn-group-item' bindtap='gotoIntroduce'>
+      <image class="index-bottom-btn-group-icon " src="../images/new/introduce.png"></image>
+      <view class='txtDisabled'>介绍</view>
+    </view>
+    <view class='index-bottom-btn-group-item' bindtap='gotoBurse'>
+      <image class="index-bottom-btn-group-icon " src="../images/new/jiangxuejin.png"></image>
+      <view class='txtDisabled'>奖学金</view>
+    </view>
+    <view class='index-bottom-btn-group-item' bindtap='handleGroupRank'>
+      <image class="index-bottom-btn-group-icon " src="../images/new/paiming.png"></image>
+      <view class='txtDisabled'>群排名</view>
+    </view>
+    <view class='index-bottom-btn-group-item' bindtap='onShareAppMessage'>
+      <button class='share-btn' type="primary" open-type='share'>
+        <image class="index-bottom-btn-group-icon " src="../images/new/share.png"></image>
+        <view class='txtDisabled'>分享</view>
+      </button>
+    </view>
+  </view>
+</view>
+<view class="outbox" wx:if="{{ifShowOutbox}}">
+  <view class="outbox_bd">
+    <view class="outbox_title">请选择难度</view>
+    <view class="outbox_body">
+      <view class="outbox_chose" wx:for="{{defaultDiffSelections}}" data-index="{{idxt}}" wx:for-index="idxt" wx:for-item="itemt" bindtap='handleDiffSelects'>{{itemt}}</view>
+    </view>
+  </view>
+</view>
+<view class="leftbox_item" bindtap='LeftboxBtn'>
+  <!-- <view class="leftbox_bg"></view> -->
+  <view class="leftbox_bd">加入学习群</view>
+</view>
+
+ <!-- wx:if="{{ifShowQRCode}}" -->
+<view class="qrcode_item" wx:if="{{ifShowQRCode}}">
+  <view class="qrcode_bg" capture-catch:tap="LeftboxHide"></view>
+  <!-- <view class="qrcode_img" bindtap='previewImage'>
+    <text class='texts'>(点击扫一扫) </text>
+  </view> -->
+  <view class="qrcode_body">
+    <view>
+      <image class="qrcode_img" bindtap='previewImage' data-src="{{qrcode}}" src="{{qrcode}}"></image>
+    </view>
+    <view bindlongtap='CipBoardData' data-items="{{wechatno}}" style="padding:20rpx;">{{qrcodemsg}}</view>
+  </view>
+  
+  <!-- <view>{{result}}</view> -->
+  <!-- <view class="qrcode_img">{{qrcode}}</view> -->
+  <!-- <web-view src="https://www.mynew-miracle.com/index.php?g=App&m=Member&a=login"></web-view> -->
+  <!-- <image class="qrcode_img" data-src="{{qrcode}}" src="{{qrcode}}"></image> -->
+</view>
+<!-- 客服 -->
+<view class="customer_item">
+  <!-- <view class="leftbox_bg"></view> -->
+  
+  <!-- <image class="customer_img" src="../images/new/09.png">
+    <contact-button style="width:100%;height:100%; position:absolute;top:0;left:0;z-index:190;" type="" open-type="contact" session-from="weapp" bindtap="BindToService"></contact-button>
+  </image> -->
+  <button class="customer_img customer_btn" open-type="contact"></button>
+</view>
+<!-- 成就卡 -->
+<view class="rightbox_item" bindtap='RightboxBtn' wx:if="{{ifShowRightBox}}">
+  <view class="rightbox_bd">成就卡</view>
+</view>
+<view class="sharecard_item" wx:if="{{ifShowShare}}">
+  <view class="sharecard_bg" capture-catch:tap="SharecardHide"></view>
+  <image class="sharecard_img" bindlongtap="SaveImage" src="{{sharecardsrc}}"></image>
+</view>
+
+</view>
+<view class="index_share" style="z-index:-100;" wx:if="{{ifShowCanvas}}">
+  <view class="index_share_bd" capture-catch:tap="ShareCanvasHide">
+    <canvas canvas-id="myCanvas"  style='width:{{cWidth}};height:{{cHeight}}' class="myCanvas" />
+  </view>
+</view>

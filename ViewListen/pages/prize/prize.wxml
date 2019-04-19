@@ -1,0 +1,55 @@
+<!--pages/prize/prize.wxml-->
+<!-- <view class="">
+  <text>pages/prize/prize.wxml</text>
+</view> -->
+<view>
+  <image class="prize_banner" src="{{picpath}}"></image>
+</view>
+<view wx:if="{{ifShowSelf}}">
+  <view class="prize_title flex">
+      <view class="prize_num">编号</view>
+      <view class="prize_remark">备注</view>
+      <view class="prize_time">时间</view>
+    </view>
+    <view class="prize_rules"></view>
+  <view class="prize_body">
+    <view wx:if="{{dataList.length!==0}}">
+      <view class="prize_pre flex" wx:for="{{dataList}}" wx:for-index="index" wx:for-item="dataL">
+        <view class="prize_num">{{index+1}}</view>
+        <view class="prize_remark">{{dataL.remark}}</view>
+        <view class="prize_time">{{dataL.time}}</view>
+        
+      </view>
+    </view>
+    <view wx:else>无奖学金记录</view>
+  </view>
+</view>
+<view wx:else>
+  <view class="prize_title flex">
+      <view class="prize_num">排名</view>
+      <view class="prize_remark">姓名</view>
+      <view class="prize_time">金额</view>
+    </view>
+    <view class="prize_rules"></view>
+  <view class="prize_body">
+    <view wx:if="{{rankL.length!==0}}">
+      <view class="prize_pre flex" wx:for="{{rankList}}" wx:for-index="rindex" wx:for-item="rankL">
+        <view class="prize_num">{{rindex+1}}</view>
+        <view class="prize_remark">
+          <view><image  class="prize_imga" src="{{rankL.headimgurl}}"></image></view>
+          <view>{{rankL.nickname}}</view>
+          
+          
+        </view>
+        <view class="prize_time">{{rankL.money}}</view>
+        
+      </view>
+    </view>
+    <view wx:else>无奖学金记录</view>
+  </view>
+</view>
+
+<view class="prize_footer flex">
+  <view class="{{ifShowSelf?'prize_footer_act':''}}" bindtap="ChangeNav1">个人奖学金</view>
+  <view class="{{ifShowSelf?'':'prize_footer_act'}}" bindtap="ChangeNav2">奖学金排名</view>
+</view>

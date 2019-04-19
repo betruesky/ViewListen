@@ -1,0 +1,94 @@
+.container {
+  height: auto;
+  background: #fff;
+}
+
+.audio-btn {
+  width: 80rpx;
+  height: 80rpx;
+  margin:0 auto;
+  display: block;
+  cursor: pointer;
+}
+.audiio_body{
+  display: inline-block;
+}
+.audiio_body:first-child{
+  margin-left:25%;
+}
+.audiio_body:last-child{
+  margin-right:25%;
+}
+.audio_progress_bg{
+  height:40rpx;
+  line-height:40rpx;
+  padding:6rpx;
+  border:1px solid #49A2F7;
+  box-sizing:border-box;
+  border-radius: 20rpx;
+}
+
+.audio-wrapper {
+  padding: 10rpx 6px;
+  background: #fff;
+  margin-top:20rpx;
+}
+
+.question-title {
+  margin-top: 64rpx;
+  font-size: 36rpx;
+  color: #000;
+}
+
+.question-opt {
+  position: relative;
+  margin-top: 10rpx;
+  padding: 20rpx 0 20rpx 60rpx;
+  font-size: 28rpx;
+  color: #333;
+  border:1px solid #F0F0F0;
+  border-radius:10rpx;
+}
+
+.error {
+  color: #f00;
+}
+
+.right {
+  color: #0f0;
+}
+
+.select-icon {
+  position: absolute;
+  left: 10rpx;
+  display: none;
+}
+
+.selected {
+  color: #318efd;
+  border:1px solid #318efd;
+}
+
+.selected .select-icon {
+  display: initial;
+}
+
+.listen-answer {
+  margin: 32rpx 0;
+  text-align: center
+}
+
+.right-answer {
+  display: inline-block;
+  padding-right: 16rpx;
+  color: #0f0;
+}
+.listen-router-btn{
+  width: 160rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  border-radius: 64rpx;
+  text-align: center;
+  background-color: #318efd;
+  color: #fff;
+}

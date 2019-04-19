@@ -1,0 +1,97 @@
+<view class="rank_bg">
+  <view class="rank_chose_week">
+    <view class="rank_week_main flex">
+      <view class="rank_week {{!ifShowNewWeek?'rank_week_act':''}}" bindtap='ChoseLastWeek'>上周排行</view>
+      <view class="rank_week {{ifShowNewWeek?'rank_week_act':''}}" bindtap='ChoseNewWeek'>本周排行</view>
+    </view>
+  </view>
+  <view class="rank_rule"></view>
+  <view>
+    <view class="rank_items rank_items_title">
+      <view class="rank_items_first">
+        排名
+      </view>
+      <!-- <view class="rank_items_second">
+        <view></view>
+      </view> -->
+      <view class="rank_items_third">
+        姓名
+      </view>
+      <view class="rank_items_forth">
+        所得分数
+      </view>
+    </view>
+    <view wx:if="{{ifShowNewWeek}}">
+      <view class="rank_items rank_items_bd" wx:for="{{rankData}}" wx:for-index="rankInde" wx:for-item="rankItem">
+        <view class="rank_items_first">
+          {{rankItem.rank}}
+        </view>
+        <view class="rank_items_second">
+          <view class="rank_items_userbg"></view>
+          <!-- <image class="rank_items_userPic" src="{{rankItem.headimgurl}}"></image> -->
+          <image class="rank_items_userPic" src="{{rankItem.headimgurl}}"></image>
+        </view>
+        <view class="rank_items_third">
+          {{rankItem.nickname}}
+        </view>
+        <view class="rank_items_forth">
+          {{rankItem.score}}分
+        </view>
+      </view>
+    </view>
+    <view wx:else>
+      <view wx:if="{{rankDataLast.length!==0}}">
+        <view class="rank_items rank_items_bd" wx:for="{{rankDataLast}}" wx:for-index="rankIndeLast" wx:for-item="rankItemLast">
+          <view class="rank_items_first">
+            {{rankItemLast.rank}}
+          </view>
+          <view class="rank_items_second">
+            <view class="rank_items_userbg"></view>
+            <!-- <image class="rank_items_userPic" src="{{rankItemLast.headimgurl}}"></image> -->
+            <image class="rank_items_userPic" src="{{rankItemLast.headimgurl}}"></image>
+          </view>
+          <view class="rank_items_third">
+            {{rankItemLast.nickname}}
+          </view>
+          <view class="rank_items_forth">
+            {{rankItemLast.score}}分
+          </view>
+        </view>
+      </view>
+      <view wx:else> 上周无数据</view>
+    </view>
+    <!-- <view class="rank_pre flex" wx:for="{{rankData}}" wx:for-index="rankInde" wx:for-item="rankItem">
+      <view>
+        <view class="rank_rankNum">{{rankItem.rank}}</view>
+      </view>
+      <view>
+        <image class="rank_userPic" src="{{rankItem.headimgurl}}"></image>
+      </view>
+      <view>
+        <view>{{rankItem.nickname}}</view>
+      </view>
+      <view>
+        <view>分数:{{rankItem.score}}</view>
+      </view>
+    </view> -->
+  </view>
+  <!-- <view wx:else>
+    <view wx:if="{{rankDataLast.length!==0}}">
+      <view class="rank_pre flex" wx:for="{{rankDataLast}}" wx:for-index="rankIndeLast" wx:for-item="rankItemLast">
+        <view>
+          <view class="rank_rankNum">{{rankItemLast.rank}}</view>
+        </view>
+        <view>
+          <image class="rank_userPic" src="{{rankItemLast.headimgurl}}"></image>
+        </view>
+        <view>
+          <view>{{rankItemLast.nickname}}</view>
+        </view>
+        <view>
+          <view>分数:{{rankItemLast.score}}</view>
+        </view>
+      </view>
+    </view>
+    <view wx:else> 上周无数据</view>
+  </view> -->
+</view>

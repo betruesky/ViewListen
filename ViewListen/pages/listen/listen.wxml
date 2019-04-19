@@ -1,0 +1,39 @@
+<view class='container'>
+  <!-- <view class='item-title'>听力练习</view> -->
+  <view class="audio_progress_bg">
+    <progress class="audio_progress_item" percent="{{percent}}" stroke-width='28rpx' backgroundColor='#fff' border-radius="14rpx" color="#49A2F7"/>
+  </view>
+  
+  <view class='audio-wrapper flex'>
+    <view class="audiio_body" bindtap="toggleAudioPlay2">
+      <image class="audio_btn_bd audio-btn" src="../images/new/refrash.png"></image>
+    </view>
+    <view class="audiio_body" bindtap="toggleAudioPlay">
+      <image class="audio_btn_bd audio-btn" src="{{btnSrc}}"></image>
+    </view>
+    
+  </view>
+  <view wx:for="{{question}}" wx:for-index="index" wx:for-item="questionItem" wx:key="{{questionItem.test_desc}}">
+    <view class='question-title'>{{index+1}}: {{questionItem.test_desc}}</view>
+    <view wx:for="{{opts}}" wx:for-index="idx" wx:for-item="opt" wx:key="{{opt}}" class="question-opt {{submited&&answers[index].select===opt?answers[index].right?'right':'error':answers[index] && idx===answers[index].idx?'selected':''}}" bindtap='handleAnswer'
+      data-index="{{index}}" data-idx="{{idx}}" data-opt="{{opt}}">
+      <icon class='select-icon' type="success" size="40rpx" color="#318EFD" /> {{opt}}: {{questionItem["answer"+(idx+1)]}}</view>
+  </view>
+  <button wx:if='{{!submited}}' type='primary' disabled="{{disabled}}" bindtap="submitListen">
+    提交并查看答案
+  </button>
+  <view wx:else>
+      <view  class='listen-answer'>正确答案为：
+        <view class="right-answer" wx:for="{{question}}" wx:for-item="rightAnswer" wx:key="{{questionItem.test_desc}}">{{rightAnswer.right}}</view>
+      </view>
+    <view class='flex'>
+    <view class='listen-router-btn' bindtap="goHomePage">
+     返回
+    </view>
+    <view  class='listen-router-btn' bindtap="goNextPass">
+     下一关
+    </view>
+    </view>
+  </view>
+
+</view>

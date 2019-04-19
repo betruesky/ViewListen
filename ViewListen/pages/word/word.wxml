@@ -1,0 +1,34 @@
+<view class='container'>
+  <view class="audio_progress_bg">
+    <progress class="audio_progress_item" percent="{{(current+1)/words.length*100}}" stroke-width='28rpx' backgroundColor='#fff' border-radius="14rpx" color="#49A2F7"/>
+  </view>
+  <view class='center'>当前单词进度: <view class="center_num"> {{current+1}} </view> / {{words.length}} <view class="center_time">{{useTime}}s</view></view>
+  <view class='word_card'>
+    <view class='word-title'>{{currentWord.pre}}.
+      <view class='word-cn'>{{currentWord.title}}</view>
+    </view>
+    <view class="audioPlay_bd">
+      <image bindtap='audioPlay' class="word-sound-playbtn" src="../images/new/voice.png"></image>
+      <button class="word_skip_btn" bindtap="submitSkipWord">
+        跳过
+      </button>
+    </view>
+    
+    <view class="word_rule">
+      <view class="word_rule_word">请填写上面的单词</view>
+    </view>
+    <view  class="flex word-item-input-wrapper  {{currentWordLength === input.length ? input === currentWord.word ? 'good' : 'bad' : ''}}">
+      <input wx:for="{{currentWordLengthArr}}"  wx:for-index="idx" wx:key="idx" class="word-item-input {{input[idx]?'inputed':''}} {{selection-1===idx?'hasSelection':''}}" value="{{input[idx]}}" data-index='{{idx}}' bindfocus="bindItemInputFocus" maxlength="1" bindblur="BlurItemInputFocus"/>
+    </view>
+    <!-- <view class="progress-show">当前单词进度： {{current+1}}</view> -->
+    <input selection-start="{{selection}}" selection-end="{{selection}}" class="word-input " value="{{input}}" confirm-hold bindinput="bindInput" bindconfirm='bindInputConfirm' focus="{{focused}}" maxlength="{{currentWordLength}}" bindblur="BlurItemInputFocus2"/>
+    <view class="word_tips">备注： 若键盘隐藏请先点击播放音频</view>
+  </view>
+  
+  <!-- <button class="word_next_btn" bindtap="submitNextWord">
+    下一个
+  </button> -->
+  <button class="word-btn" type='primary' bindtap="submitWord">
+    提交总进度
+  </button>
+</view>
